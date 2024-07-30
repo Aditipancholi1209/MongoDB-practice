@@ -1,14 +1,18 @@
-db.orders.aggregate( [
+// db.collection.aggregate(pipeline,options)
+// pipeline is an array of all the operations
 
-    // Stage 1: Filter pizza order documents by pizza size
-    {
-       $match: { size: "medium" }
-    },
- 
-    // Stage 2: Group remaining documents by pizza name and calculate total quantity
-    {
-       $group: { _id: "$name", totalQuantity: { $sum: "$quantity" } }
-    }
- 
- ] )
+db.Employees.aggregate([{$match : {age:23}}]) 
 
+// find the male teachers only
+db.Teachers.aggregate([{$match:{gender:"male"}}])
+
+//group teachers by age :
+// one of the operator in the pipeline
+db.Teachers.find({age:{$gt:20}})
+
+// $group:{_id:expression,field:expression,field2:expression}
+db.Teachers.aggregate([{$group:{_id:"$age"}}])
+
+db.Teachers.aggregate([
+   {$group:{_id:"$age",names:{$push:"$name"}}}
+])
