@@ -46,4 +46,5 @@ db.Employees.find({ hobbies: { $all: ["cooking", "Anime"] } })
 
 // in operator to check whther this is present in the array  
 db.Employees.find({ hobbies: { $all: ["cooking", "Anime"] } })
+
 db.Employees.find("$and"[{ "products.name": 'apple' }, { "products.quantity": { $gt: 11 } }])
