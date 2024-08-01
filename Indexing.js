@@ -1,4 +1,7 @@
 // Indexing : single field index, Compound Indexes, Text Indexes
+// Indexes : special DS that store small portion of collection's data in easy-to-transform manner
+
+
 
 db.collection.find({field:'value'}).explain()
 // explain will explain all the working behind the query that we wrote
@@ -31,3 +34,4 @@ db.Employees.createIndex({age:1},{partialFilterExpression: {age:{$lte:20}}})
 
 // the index is created then gets deleted in the given duration in expireSeconds 
 db.Employees.createIndex({"expires":1},{expireAfterSeconds:3600})
+// expire works on date field & single field index
