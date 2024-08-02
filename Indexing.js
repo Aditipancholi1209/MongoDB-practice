@@ -35,3 +35,25 @@ db.Employees.createIndex({age:1},{partialFilterExpression: {age:{$lte:20}}})
 // the index is created then gets deleted in the given duration in expireSeconds 
 db.Employees.createIndex({"expires":1},{expireAfterSeconds:3600})
 // expire works on date field & single field index
+
+
+
+
+// Multi-key index - array field indexes
+// mongoDB creates a specific index entry at each value in each array so it can quickly look up documents that match a specific value
+db.Employees.createIndex({Hobbies:1})
+db.Employees.getIndexes()
+db.Employees.find({Hobbies:'Walk'}).explain()
+
+// Text Index :-
+// only 1 text index can be created, but we can add multiple fields
+// 1)Single text index per collection
+// 2) Tokenization & stemming
+// 3) Relevance score
+
+db.Employees.find({Bio:"I'm a singer, coder."})
+db.Employees.createIndex({bio:"text",name:"text"})
+// we can find out text in both of these field
+db.Employees.find({$text: {$search: "singer"}})
+db.Employees.createIndex({name:"text",bio:"text"},{weights:{name:1000,bio:1}})
+db.Employees.createIndex({name:"text",bio:"text"},{background:true})

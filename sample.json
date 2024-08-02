@@ -1,0 +1,16 @@
+{
+  "name": "Ryan King",
+  "age": 37,
+  "gender": "Male",
+  "experience": [
+    {
+      "school": "Eagle Ridge School",
+      "years": 6
+    },
+    {
+      "school": "Summit School",
+      "years": 4
+    }
+  ]
+}
+

@@ -1,0 +1,24 @@
+{
+    "_id": {
+      "$oid": "66a88420b84c9f274a80c6e2"
+    },
+    "name": "John Doe",
+    "position": "Software Engineer",
+    "department": "IT",
+    "age": 20,
+    "experience": [
+      {
+        "company": "Swiggy",
+        "year": 2
+      },
+      {
+        "company": "Airtel",
+        "year": 4
+      }
+    ],
+    "Hobbies": [
+      "Walk",
+      "Talk"
+    ],
+    "Bio": "I'm a singer, coder."
+  }
